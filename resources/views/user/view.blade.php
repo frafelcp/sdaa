@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header"><h2>Edit User</h2></div>
+                <div class="card-header"><h2>Editar Usuario</h2></div>
 
                 <div class="card-body">
                    @include('custom.message')
@@ -59,8 +59,8 @@
                           
                           <hr>
                           
-                          <a class="btn btn-success" href="{{route('user.edit',$user->id)}}">Edit</a>
-                          <a class="btn btn-danger" href="{{route('user.index')}}">Back</a>
+                          <a class="btn btn-success" href="{{route('user.edit',$user->id)}}">Editar</a>
+                          <a class="btn btn-danger" href="{{route('user.index')}}">Regresar</a>
 
 
 
