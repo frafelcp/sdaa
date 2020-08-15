@@ -13,10 +13,19 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         $this->authorize('haveaccess','user.index');
-        $users =  User::with('roles')->orderBy('id','Desc')->paginate(2);
+        $name = $request->get('buscarpor');
+        $email = $request->get('buscarporemail');
+        $users =  User::with('roles')
+            ->name($name)
+            ->email($email)
+            ->orderBy('id','Desc')
+            ->paginate(2);
+        /* $users =  User::with(['roles' => function($query) use ($nombre) {
+            $query->where('name','like',"%$nombre%");
+        }])->orderBy('id','Desc')->paginate(2); */
         //return $users; 
 
         return view('user.index',compact('users'));

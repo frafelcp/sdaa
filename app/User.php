@@ -38,8 +38,16 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-
+    public function scopeName($query, $name){
+        if (trim($name)) {
+    		return $query->where('name','LIKE',"%$name%");
+    	}          
+    }
     
-
+    public function scopeEmail($query, $email){
+        if (trim($email)) {
+    		return $query->where('name','LIKE',"%$email%");
+    	}          
+    }
    
 }
